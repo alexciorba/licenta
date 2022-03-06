@@ -16,7 +16,7 @@ public class UserConvertor {
             userDto.setId(userEntity.getId());
             userDto.setLastName(userEntity.getLastName());
             userDto.setFirstName(userEntity.getFirstName());
-            userDto.setDateOfBirth(userEntity.getDateOfBirth());
+            userDto.setBirthDate(userEntity.getBirthDate());
             userDto.setEmail(userEntity.getEmail());
             userDto.setPhone(userEntity.getPhone());
             userDto.setUsername(userEntity.getUsername());

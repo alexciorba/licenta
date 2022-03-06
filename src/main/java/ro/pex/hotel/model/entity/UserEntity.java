@@ -34,8 +34,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String email;
 
-    @Column(name = "date_of_birth", nullable = false)
-    private LocalDate dateOfBirth;
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
 
     public int getId() {
         return id;
@@ -93,12 +93,12 @@ public class UserEntity {
         this.email = email;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
 }

@@ -23,6 +23,6 @@ public class UserController {
     public ResponseEntity<List<UserDto>> getUsers() {
 
         List<UserDto> users = userService.getAll();
-        return ResponseEntity.ok(user);
+        return null;
     }
 }

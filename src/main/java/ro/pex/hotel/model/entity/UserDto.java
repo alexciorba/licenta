@@ -18,7 +18,7 @@ public class UserDto {
 
     private String email;
 
-    private LocalDate dateOfBirth;
+    private LocalDate birthDate;
 
     public int getId() {
         return id;
@@ -76,12 +76,12 @@ public class UserDto {
         this.email = email;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
 }
