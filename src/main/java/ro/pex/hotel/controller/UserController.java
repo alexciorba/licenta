@@ -15,14 +15,14 @@ import ro.pex.hotel.service.UserService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
-	@Autowired
-	private UserService userService;
-	
-	@GetMapping
-	public ResponseEntity<List<UserDto>> getUsers() {
-		
-		List<UserDto> users = userService.getAll();
-		return ResponseEntity.ok(user);
-	}
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping
+    public ResponseEntity<List<UserDto>> getUsers() {
+
+        List<UserDto> users = userService.getAll();
+        return ResponseEntity.ok(user);
+    }
 }
