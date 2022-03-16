@@ -18,10 +18,7 @@ import ro.pex.hotel.model.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-<<<<<<< HEAD
-=======
 
->>>>>>> 6d6320c26fcddaa32a7d7396bf1ff5a247907ebf
     @Autowired
     private UserRepository userRepository;
 
