@@ -1,94 +1,70 @@
 package ro.pex.hotel.model.entity;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import java.util.*;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 public class Reservation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    private Date StartDate;
+	private Date StartDate;
 
-    private Date EndDate;
+	private Date EndDate;
 
-    private Date ReservationDate;
+	private Date ReservationDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-    @OneToMany(mappedBy = "reservation")
-    private Set<Room> rooms = new HashSet<>();
+	@OneToMany(mappedBy = "reservation")
+	private Set<Room> rooms = new HashSet<>();
 
-    @OneToMany(mappedBy = "reservation")
-    private Set<Facility> facilities = new HashSet<>();
+	@OneToMany(mappedBy = "reservation")
+	private Set<Facility> facilities = new HashSet<>();
 
-    /**
-     * @return the StartDate
-     */
-    public Date getStartDate() {
-        return StartDate;
-    }
+	public int getId() {
+		return id;
+	}
 
-    /**
-     * @param StartDate the StartDate to set
-     */
-    public void setStartDate(Date StartDate) {
-        this.StartDate = StartDate;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    /**
-     * @return the EndDate
-     */
-    public Date getEndDate() {
-        return EndDate;
-    }
+	public Date getStartDate() {
+		return StartDate;
+	}
 
-    /**
-     * @param EndDate the EndDate to set
-     */
-    public void setEndDate(Date EndDate) {
-        this.EndDate = EndDate;
-    }
+	public void setStartDate(Date StartDate) {
+		this.StartDate = StartDate;
+	}
 
-    /**
-     * @return the ReservationDate
-     */
-    public Date getReservationDate() {
-        return ReservationDate;
-    }
+	public Date getEndDate() {
+		return EndDate;
+	}
 
-    /**
-     * @param ReservationDate the ReservationDate to set
-     */
-    public void setReservationDate(Date ReservationDate) {
-        this.ReservationDate = ReservationDate;
-    }
+	public void setEndDate(Date EndDate) {
+		this.EndDate = EndDate;
+	}
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
+	public Date getReservationDate() {
+		return ReservationDate;
+	}
 
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setReservationDate(Date ReservationDate) {
+		this.ReservationDate = ReservationDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

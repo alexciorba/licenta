@@ -1,53 +1,45 @@
 package ro.pex.hotel.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "facility")
+@Table(name = "facilities")
 public class Facility {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    private String Description;
-    
-    private int Price;
-    
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
 
-    /**
-     * @return the Description
-     */
-    public String getDescription() {
-        return Description;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    /**
-     * @param Description the Description to set
-     */
-    public void setDescription(String Description) {
-        this.Description = Description;
-    }
+	private String Description;
 
-    /**
-     * @return the Price
-     */
-    public int getPrice() {
-        return Price;
-    }
+	private int Price;
 
-    /**
-     * @param Price the Price to set
-     */
-    public void setPrice(int Price) {
-        this.Price = Price;
-    }
+	@ManyToOne
+	@JoinColumn(name = "reservation_id")
+	private Reservation reservation;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return Description;
+	}
+
+	public void setDescription(String Description) {
+		this.Description = Description;
+	}
+
+	public int getPrice() {
+		return Price;
+	}
+
+	public void setPrice(int Price) {
+		this.Price = Price;
+	}
+
 }

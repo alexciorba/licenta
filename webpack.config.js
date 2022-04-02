@@ -1,8 +1,8 @@
 var path = require('path');
 
 module.exports = {
-	entry: './src/main/frontend/app.js',
-	devtool: 'sourcemaps',
+	entry: './src/main/frontend/App.js',
+	devtool: 'eval-source-map',
 	cache: true,
 	mode: 'development',
 	output: {
