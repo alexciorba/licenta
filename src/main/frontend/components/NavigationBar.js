@@ -22,10 +22,10 @@ const NavigationBar = () => {
 		<>
 			<div className="mr-auto"></div>
 			<Nav className="navbar-right">
-				<Link to={"register"} className="nav-link">
+				<Link to="/register" className="nav-link">
 					<FontAwesomeIcon icon={faUserPlus} /> Register
 				</Link>
-				<Link to={"login"} className="nav-link">
+				<Link to="/login" className="nav-link">
 					<FontAwesomeIcon icon={faSignInAlt} /> Login
 				</Link>
 			</Nav>

@@ -8,10 +8,13 @@ import Welcome from "./components/Welcome";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-
+import RootReducer from "./services/rootReducer";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import { Outlet  } from "react-router-dom";
 const React = require('react');
 const ReactDOM = require('react-dom');
-
+const store = createStore(RootReducer);
 const App = () => {
 	window.onbeforeunload = (event) => {
 		const e = event || window.event;
@@ -28,8 +31,8 @@ const App = () => {
 			<Routes>
 				<Route path="/" exact component={Welcome} />
 				<Route path="/home" exact component={Home} />
-				<Route path="/register" exact component={Register} />
-				<Route path="/login" exact component={Login} />
+				<Route path="/register"  component={<Register/>} />
+				<Route path="/login"  component={<Login/>} />
 				<Route
 					path="/logout"
 					exact
@@ -38,16 +41,19 @@ const App = () => {
 					)}
 				/>
 			</Routes>
+			<Outlet />
 			<Footer />
 		</Router>
+		
 	);
 }
 
 export default App;
 
 ReactDOM.render(
-	<Router basename="/hotel-app">
-		<App />
-	</Router>,
+	<Provider store={store}> 
+      <App /> 
+    </Provider>,
+   
 	document.getElementById('react')
 )
