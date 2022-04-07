@@ -6,15 +6,17 @@ import Footer from "./components/Footer";
 
 import Welcome from "./components/Welcome";
 import Home from "./components/Home";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./components/User/Login";
+import Register from "./components/User/Register";
 import RootReducer from "./services/rootReducer";
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import { Outlet  } from "react-router-dom";
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { Outlet } from "react-router-dom";
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 const store = createStore(RootReducer);
+
 const App = () => {
 	window.onbeforeunload = (event) => {
 		const e = event || window.event;
@@ -26,13 +28,13 @@ const App = () => {
 	};
 
 	return (
-		<Router>
+		<Router basename="/hotel-app">
 			<NavigationBar />
 			<Routes>
-				<Route path="/" exact component={Welcome} />
-				<Route path="/home" exact component={Home} />
-				<Route path="/register"  component={<Register/>} />
-				<Route path="/login"  component={<Login/>} />
+				<Route path="/" element={<Welcome />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
 				<Route
 					path="/logout"
 					exact
@@ -44,16 +46,15 @@ const App = () => {
 			<Outlet />
 			<Footer />
 		</Router>
-		
 	);
 }
 
 export default App;
 
 ReactDOM.render(
-	<Provider store={store}> 
-      <App /> 
-    </Provider>,
-   
+	<Provider store={store}>
+		<App />
+	</Provider>,
+
 	document.getElementById('react')
 )

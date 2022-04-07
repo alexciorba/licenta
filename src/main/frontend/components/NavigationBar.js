@@ -55,13 +55,7 @@ const NavigationBar = () => {
 	return (
 		<Navbar bg="dark" variant="dark">
 			<Link to={auth.isLoggedIn ? "home" : ""} className="navbar-brand">
-				<img
-					src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Book_icon_1.png"
-					width="25"
-					height="25"
-					alt="brand"
-				/>{" "}
-				Book Store
+				Hotel Alexia
 			</Link>
 			{auth.isLoggedIn ? userLinks : guestLinks}
 		</Navbar>
