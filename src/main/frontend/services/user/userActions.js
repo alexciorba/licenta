@@ -1,7 +1,8 @@
 import * as UT from "./userTypes";
 import axios from "axios";
+import 'regenerator-runtime/runtime'
 
-const REGISTER_URL = "http://localhost:8081/rest/user/register";
+const REGISTER_URL = "http://localhost:8080/hotel-app/user/register";
 
 export const fetchUsers = () => {
 	return (dispatch) => {
@@ -19,10 +20,12 @@ export const fetchUsers = () => {
 	};
 };
 
-export const registerUser = (userObject) => async (dispatch) => {
+export const registerUser = (userObject) => async () => {
 	dispatch(userRequest());
 	try {
+		console.log("test1");
 		const response = await axios.post(REGISTER_URL, userObject);
+		console.log("test2");
 		dispatch(userSavedSuccess(response.data));
 		return Promise.resolve(response.data);
 	} catch (error) {

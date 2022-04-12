@@ -26,7 +26,6 @@ import ro.pex.hotel.model.repository.UserRepository;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins="http://localhost:3000")
 public class UserResourceImpl {
 
 	private static Logger log = LoggerFactory.getLogger(UserResourceImpl.class);

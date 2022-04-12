@@ -17,10 +17,7 @@ import {
 import { authenticateUser } from "../../services/index";
 import Card from "react-bootstrap/Card";
 import 'bootstrap/dist/css/bootstrap.css';
-import 	FormControl from "react-bootstrap/FormControl";
-
-
-
+import FormControl from "react-bootstrap/FormControl";
 
 const Login = (props) => {
 	const [error, setError] = useState();
@@ -78,32 +75,30 @@ const Login = (props) => {
 					<Card.Body>
 						<Row>
 							<Form.Group as={Col}>
-								
-									<FormControl
-										required
-										autoComplete="off"
-										type="text"
-										name="email"
-										value={user.email}
-										onChange={credentialChange}
-										className={"bg-dark text-white"}
-										placeholder="Enter Email Address"
-									/>
-														</Form.Group>
+								<FormControl
+									required
+									autoComplete="off"
+									type="text"
+									name="email"
+									value={user.email}
+									onChange={credentialChange}
+									className={"bg-dark text-white"}
+									placeholder="Enter Email Address"
+								/>
+							</Form.Group>
 						</Row>
 						<Row>
 							<Form.Group as={Col}>
-								
-									<FormControl
-										required
-										autoComplete="off"
-										type="password"
-										name="password"
-										value={user.password}
-										onChange={credentialChange}
-										className={"bg-dark text-white"}
-										placeholder="Enter Password"
-									/>
+								<FormControl
+									required
+									autoComplete="off"
+									type="password"
+									name="password"
+									value={user.password}
+									onChange={credentialChange}
+									className={"bg-dark text-white"}
+									placeholder="Enter Password"
+								/>
 							</Form.Group>
 						</Row>
 					</Card.Body>

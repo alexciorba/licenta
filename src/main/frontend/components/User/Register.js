@@ -75,9 +75,7 @@ const Register = (props) => {
 						<Card.Body>
 							<Row>
 								<FontAwesomeIcon icon={faUserPlus} />
-
-								<Form.Group as={Col}>
-									
+								<Form.Group as={Col}>		
 										<FormControl
 											autoComplete="off"
 											type="text"
@@ -86,8 +84,7 @@ const Register = (props) => {
 											onChange={userChange}
 											className={"bg-dark text-white"}
 											placeholder="Enter Name"
-										/>
-									
+										/>					
 								</Form.Group>
 							</Row>
 							<Row>
