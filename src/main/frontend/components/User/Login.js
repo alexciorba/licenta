@@ -3,10 +3,7 @@ import { useDispatch } from "react-redux";
 import {
 	Row,
 	Col,
-	Card,
 	Form,
-	InputGroup,
-	FormControl,
 	Button,
 	Alert,
 } from "react-bootstrap";
@@ -18,6 +15,12 @@ import {
 	faUndo,
 } from "@fortawesome/free-solid-svg-icons";
 import { authenticateUser } from "../../services/index";
+import Card from "react-bootstrap/Card";
+import 'bootstrap/dist/css/bootstrap.css';
+import 	FormControl from "react-bootstrap/FormControl";
+
+
+
 
 const Login = (props) => {
 	const [error, setError] = useState();
@@ -73,14 +76,9 @@ const Login = (props) => {
 						<FontAwesomeIcon icon={faSignInAlt} /> Login
 					</Card.Header>
 					<Card.Body>
-						<Form.Row>
+						<Row>
 							<Form.Group as={Col}>
-								<InputGroup>
-									<InputGroup.Prepend>
-										<InputGroup.Text>
-											<FontAwesomeIcon icon={faEnvelope} />
-										</InputGroup.Text>
-									</InputGroup.Prepend>
+								
 									<FormControl
 										required
 										autoComplete="off"
@@ -91,17 +89,11 @@ const Login = (props) => {
 										className={"bg-dark text-white"}
 										placeholder="Enter Email Address"
 									/>
-								</InputGroup>
-							</Form.Group>
-						</Form.Row>
-						<Form.Row>
+														</Form.Group>
+						</Row>
+						<Row>
 							<Form.Group as={Col}>
-								<InputGroup>
-									<InputGroup.Prepend>
-										<InputGroup.Text>
-											<FontAwesomeIcon icon={faLock} />
-										</InputGroup.Text>
-									</InputGroup.Prepend>
+								
 									<FormControl
 										required
 										autoComplete="off"
@@ -112,9 +104,8 @@ const Login = (props) => {
 										className={"bg-dark text-white"}
 										placeholder="Enter Password"
 									/>
-								</InputGroup>
 							</Form.Group>
-						</Form.Row>
+						</Row>
 					</Card.Body>
 					<Card.Footer style={{ textAlign: "right" }}>
 						<Button

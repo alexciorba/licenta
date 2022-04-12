@@ -3,10 +3,7 @@ import { useDispatch } from "react-redux";
 import {
 	Row,
 	Col,
-	Card,
 	Form,
-	InputGroup,
-	FormControl,
 	Button,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +17,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { registerUser } from "../../services/index";
 import MyToast from "../MyToast";
+import Card from "react-bootstrap/Card";
+import 'bootstrap/dist/css/bootstrap.css';
+import 	FormControl from "react-bootstrap/FormControl";
 
 const Register = (props) => {
 	const [show, setShow] = useState(false);
@@ -73,14 +73,11 @@ const Register = (props) => {
 							<FontAwesomeIcon icon={faUserPlus} /> Register
 						</Card.Header>
 						<Card.Body>
-							<Form.Row>
+							<Row>
+								<FontAwesomeIcon icon={faUserPlus} />
+
 								<Form.Group as={Col}>
-									<InputGroup>
-										<InputGroup.Prepend>
-											<InputGroup.Text>
-												<FontAwesomeIcon icon={faUser} />
-											</InputGroup.Text>
-										</InputGroup.Prepend>
+									
 										<FormControl
 											autoComplete="off"
 											type="text"
@@ -90,17 +87,12 @@ const Register = (props) => {
 											className={"bg-dark text-white"}
 											placeholder="Enter Name"
 										/>
-									</InputGroup>
+									
 								</Form.Group>
-							</Form.Row>
-							<Form.Row>
+							</Row>
+							<Row>
 								<Form.Group as={Col}>
-									<InputGroup>
-										<InputGroup.Prepend>
-											<InputGroup.Text>
-												<FontAwesomeIcon icon={faEnvelope} />
-											</InputGroup.Text>
-										</InputGroup.Prepend>
+									
 										<FormControl
 											required
 											autoComplete="off"
@@ -111,17 +103,12 @@ const Register = (props) => {
 											className={"bg-dark text-white"}
 											placeholder="Enter Email Address"
 										/>
-									</InputGroup>
+									
 								</Form.Group>
-							</Form.Row>
-							<Form.Row>
+							</Row>
+							<Row>
 								<Form.Group as={Col}>
-									<InputGroup>
-										<InputGroup.Prepend>
-											<InputGroup.Text>
-												<FontAwesomeIcon icon={faLock} />
-											</InputGroup.Text>
-										</InputGroup.Prepend>
+									
 										<FormControl
 											required
 											autoComplete="off"
@@ -132,17 +119,11 @@ const Register = (props) => {
 											className={"bg-dark text-white"}
 											placeholder="Enter Password"
 										/>
-									</InputGroup>
+									
 								</Form.Group>
-							</Form.Row>
-							<Form.Row>
+							</Row>
+							<Row>
 								<Form.Group as={Col}>
-									<InputGroup>
-										<InputGroup.Prepend>
-											<InputGroup.Text>
-												<FontAwesomeIcon icon={faPhone} />
-											</InputGroup.Text>
-										</InputGroup.Prepend>
 										<FormControl
 											autoComplete="off"
 											type="text"
@@ -152,9 +133,8 @@ const Register = (props) => {
 											className={"bg-dark text-white"}
 											placeholder="Enter Mobile Number"
 										/>
-									</InputGroup>
 								</Form.Group>
-							</Form.Row>
+							</Row>
 						</Card.Body>
 						<Card.Footer style={{ textAlign: "right" }}>
 							<Button
