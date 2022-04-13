@@ -58,21 +58,19 @@ const Register = (props) => {
 
 		fetch('http://localhost:8080/hotel-app/user/register', {
 			method: 'POST',
+			headers: {
+    			'Accept': 'application/json',
+    			'Content-Type': 'application/json'
+  			},
 			body: JSON.stringify(user)
 		})
-			.then(res => res.json())
-			.then((data) => {
-				setShow(true);
-				debugger;
-				setMessage(data.message);
-				resetRegisterForm();
-				/*setTimeout(() => {
-					setShow(false);
-					props.history.push("/login");
-				}
-				)*/
-			}
-			)
+		.then(res => res.json())
+		.then((data) => {
+			setShow(true);
+			setMessage(data.message);
+			resetRegisterForm();
+		})
+		.then(res => console.log(res))
 	};
 
 	const resetRegisterForm = () => {
@@ -92,22 +90,33 @@ const Register = (props) => {
 						</Card.Header>
 						<Card.Body>
 							<Row>
-								<FontAwesomeIcon icon={faUserPlus} />
 								<Form.Group as={Col}>
 									<FormControl
 										autoComplete="off"
 										type="text"
-										name="name"
-										value={user.name}
+										name="firstName"
+										value={user.firstName}
 										onChange={userChange}
 										className={"bg-dark text-white"}
-										placeholder="Enter Name"
+										placeholder="First Name"
 									/>
 								</Form.Group>
 							</Row>
 							<Row>
 								<Form.Group as={Col}>
-
+									<FormControl
+										autoComplete="off"
+										type="text"
+										name="lastName"
+										value={user.lastName}
+										onChange={userChange}
+										className={"bg-dark text-white"}
+										placeholder="Last Name"
+									/>
+								</Form.Group>
+							</Row>
+							<Row>
+								<Form.Group as={Col}>
 									<FormControl
 										required
 										autoComplete="off"
@@ -118,12 +127,10 @@ const Register = (props) => {
 										className={"bg-dark text-white"}
 										placeholder="Enter Email Address"
 									/>
-
 								</Form.Group>
 							</Row>
 							<Row>
 								<Form.Group as={Col}>
-
 									<FormControl
 										required
 										autoComplete="off"
@@ -133,20 +140,6 @@ const Register = (props) => {
 										onChange={userChange}
 										className={"bg-dark text-white"}
 										placeholder="Enter Password"
-									/>
-
-								</Form.Group>
-							</Row>
-							<Row>
-								<Form.Group as={Col}>
-									<FormControl
-										autoComplete="off"
-										type="text"
-										name="mobile"
-										value={user.mobile}
-										onChange={userChange}
-										className={"bg-dark text-white"}
-										placeholder="Enter Mobile Number"
 									/>
 								</Form.Group>
 							</Row>
