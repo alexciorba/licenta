@@ -19,7 +19,7 @@ import { registerUser } from "../../services/index";
 import MyToast from "../MyToast";
 import Card from "react-bootstrap/Card";
 import 'bootstrap/dist/css/bootstrap.css';
-import 	FormControl from "react-bootstrap/FormControl";
+import FormControl from "react-bootstrap/FormControl";
 
 const Register = (props) => {
 	const [show, setShow] = useState(false);
@@ -42,7 +42,7 @@ const Register = (props) => {
 	const dispatch = useDispatch();
 
 	const saveUser = () => {
-		dispatch(registerUser(user))
+		/*dispatch(registerUser(user))
 			.then((response) => {
 				setShow(true);
 				setMessage(response.message);
@@ -54,7 +54,25 @@ const Register = (props) => {
 			})
 			.catch((error) => {
 				console.log(error);
-			});
+			});*/
+
+		fetch('http://localhost:8080/hotel-app/user/register', {
+			method: 'POST',
+			body: JSON.stringify(user)
+		})
+			.then(res => res.json())
+			.then((data) => {
+				setShow(true);
+				debugger;
+				setMessage(data.message);
+				resetRegisterForm();
+				/*setTimeout(() => {
+					setShow(false);
+					props.history.push("/login");
+				}
+				)*/
+			}
+			)
 	};
 
 	const resetRegisterForm = () => {
@@ -75,61 +93,61 @@ const Register = (props) => {
 						<Card.Body>
 							<Row>
 								<FontAwesomeIcon icon={faUserPlus} />
-								<Form.Group as={Col}>		
-										<FormControl
-											autoComplete="off"
-											type="text"
-											name="name"
-											value={user.name}
-											onChange={userChange}
-											className={"bg-dark text-white"}
-											placeholder="Enter Name"
-										/>					
+								<Form.Group as={Col}>
+									<FormControl
+										autoComplete="off"
+										type="text"
+										name="name"
+										value={user.name}
+										onChange={userChange}
+										className={"bg-dark text-white"}
+										placeholder="Enter Name"
+									/>
 								</Form.Group>
 							</Row>
 							<Row>
 								<Form.Group as={Col}>
-									
-										<FormControl
-											required
-											autoComplete="off"
-											type="text"
-											name="email"
-											value={user.email}
-											onChange={userChange}
-											className={"bg-dark text-white"}
-											placeholder="Enter Email Address"
-										/>
-									
+
+									<FormControl
+										required
+										autoComplete="off"
+										type="text"
+										name="email"
+										value={user.email}
+										onChange={userChange}
+										className={"bg-dark text-white"}
+										placeholder="Enter Email Address"
+									/>
+
 								</Form.Group>
 							</Row>
 							<Row>
 								<Form.Group as={Col}>
-									
-										<FormControl
-											required
-											autoComplete="off"
-											type="password"
-											name="password"
-											value={user.password}
-											onChange={userChange}
-											className={"bg-dark text-white"}
-											placeholder="Enter Password"
-										/>
-									
+
+									<FormControl
+										required
+										autoComplete="off"
+										type="password"
+										name="password"
+										value={user.password}
+										onChange={userChange}
+										className={"bg-dark text-white"}
+										placeholder="Enter Password"
+									/>
+
 								</Form.Group>
 							</Row>
 							<Row>
 								<Form.Group as={Col}>
-										<FormControl
-											autoComplete="off"
-											type="text"
-											name="mobile"
-											value={user.mobile}
-											onChange={userChange}
-											className={"bg-dark text-white"}
-											placeholder="Enter Mobile Number"
-										/>
+									<FormControl
+										autoComplete="off"
+										type="text"
+										name="mobile"
+										value={user.mobile}
+										onChange={userChange}
+										className={"bg-dark text-white"}
+										placeholder="Enter Mobile Number"
+									/>
 								</Form.Group>
 							</Row>
 						</Card.Body>

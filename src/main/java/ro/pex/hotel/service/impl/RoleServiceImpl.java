@@ -8,6 +8,7 @@ import org.codehaus.jettison.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ro.pex.hotel.model.entity.ERole;
 import ro.pex.hotel.model.entity.Role;
 import ro.pex.hotel.model.repository.RoleRepository;
 import ro.pex.hotel.service.IRoleService;
@@ -29,7 +30,7 @@ public class RoleServiceImpl implements IRoleService<Role> {
 	}
 	
 	@Override
-	public Role findByName(String name) {
+	public Role findByName(ERole name) {
 		return roleRepository.findByName(name);
 	}
 

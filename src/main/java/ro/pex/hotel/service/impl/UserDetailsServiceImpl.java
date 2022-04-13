@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private Collection<GrantedAuthority> getGrantedAuthority(User user) {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		if (user.getRole().getName() == ERole.ROLE_ADMIN) {
+		if (ERole.ROLE_ADMIN.equals(user.getRole().getName())) {
 			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		}
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));

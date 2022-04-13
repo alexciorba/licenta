@@ -42,13 +42,13 @@ public class UserResourceImpl {
 	@Autowired
 	private UserRepository userRepository;
 
-	@PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> register(@RequestBody User user) {
 		log.info("UserResourceImpl : register");
 		JSONObject jsonObject = new JSONObject();
 		try {
 			user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-			user.setRole(roleRepository.findByName(ERole.ROLE_USER.toString()));
+			user.setRole(roleRepository.findByName(ERole.ROLE_USER));
 			User savedUser = userRepository.saveAndFlush(user);
 			jsonObject.put("message", savedUser.getUsername() + " saved succesfully");
 			return new ResponseEntity<>(jsonObject.toString(), HttpStatus.OK);
