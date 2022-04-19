@@ -1,9 +1,9 @@
 import * as AT from "./authTypes";
 import axios from "axios";
 
-const AUTH_URL = "http://localhost:8081/rest/user/authenticate";
+const AUTH_URL = "http://localhost:8080/rest/user/authenticate";
 
-export const authenticateUser = (email, password) => async (dispatch) => {
+/*export const authenticateUser = (email, password) => async (dispatch) => {
 	dispatch(loginRequest());
 	try {
 		const response = await axios.post(AUTH_URL, {
@@ -17,6 +17,25 @@ export const authenticateUser = (email, password) => async (dispatch) => {
 		dispatch(failure());
 		return Promise.reject(error);
 	}
+};*/
+export const authenticateUser = (user)  => {
+	loginRequest();
+
+
+	return fetch('http://localhost:8080/hotel-app/user/authenticate', {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(user)
+	})
+		
+
+};
+export const setLocalStorage = () => {
+	localStorage.setItem("jwtToken", data.token);
+	success({ username: data.name, isLoggedIn: true });
 };
 
 export const logoutUser = () => {

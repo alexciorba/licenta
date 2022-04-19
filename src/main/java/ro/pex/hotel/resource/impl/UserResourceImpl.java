@@ -62,7 +62,7 @@ public class UserResourceImpl {
 		}
 	}
 
-	@PostMapping(value = "/authenticate", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/authenticate", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> authenticate(@RequestBody User user) {
 		log.info("UserResourceImpl : authenticate");
 		JSONObject jsonObject = new JSONObject();

@@ -19,6 +19,8 @@ import Card from "react-bootstrap/Card";
 import 'bootstrap/dist/css/bootstrap.css';
 import FormControl from "react-bootstrap/FormControl";
 
+
+
 const Login = (props) => {
 	const [error, setError] = useState();
 	const [show, setShow] = useState(true);
@@ -35,13 +37,12 @@ const Login = (props) => {
 		setUser({ ...user, [name]: value });
 	};
 
-	const dispatch = useDispatch();
 
 	const validateUser = () => {
-		dispatch(authenticateUser(user.email, user.password))
+		authenticateUser(user)
 			.then((response) => {
 				console.log(response.data);
-				return props.history.push("/home");
+				//return props.history.push("/home");
 			})
 			.catch((error) => {
 				console.log(error.message);
@@ -50,6 +51,7 @@ const Login = (props) => {
 				setError("Invalid email and password");
 			});
 	};
+	
 
 	const resetLoginForm = () => {
 		setUser(initialState);
