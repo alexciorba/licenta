@@ -42,7 +42,7 @@ const Login = (props) => {
 		authenticateUser(user)
 			.then((response) => {
 				console.log(response.data);
-				//return props.history.push("/home");
+				// return props.history.push("/");
 			})
 			.catch((error) => {
 				console.log(error.message);

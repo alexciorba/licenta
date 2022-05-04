@@ -21,7 +21,6 @@ const AUTH_URL = "http://localhost:8080/rest/user/authenticate";
 export const authenticateUser = (user)  => {
 	loginRequest();
 
-
 	return fetch('http://localhost:8080/hotel-app/user/authenticate', {
 		method: 'POST',
 		headers: {
@@ -30,8 +29,6 @@ export const authenticateUser = (user)  => {
 		},
 		body: JSON.stringify(user)
 	})
-		
-
 };
 export const setLocalStorage = () => {
 	localStorage.setItem("jwtToken", data.token);

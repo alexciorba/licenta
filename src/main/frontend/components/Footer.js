@@ -13,8 +13,12 @@ const Footer = () => {
 		<Navbar fixed="bottom" bg="dark" variant="dark">
 			<Container>
 				<Col lg={12} className="text-center text-muted">
+					<div>Locatie: Str. Freziei, Nr. 34, Timisoara</div>
+					<div>Receptie hotel: +40256258253</div>
+					<div>Evenimente: +40727458253</div>
+					<div>Email: office@hotelalexia.ro</div>
 					<div>
-						{fullYear}-{fullYear + 1}, All Rights Reserved by Almighty Java
+						{fullYear}-{fullYear + 1}, All Rights Reserved by Alexia
 					</div>
 				</Col>
 			</Container>
