@@ -16,7 +16,6 @@ import RootReducer from "./services/rootReducer";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Outlet } from "react-router-dom";
-import HotelLogo from '../../../src/assets/images/hotel-logo.png';
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -35,26 +34,24 @@ const App = () => {
 	return (
 		<Router basename="/hotel-app">
 			<NavigationBar />
-			<div class="container">
-				<Routes>
-					<Route path="/" element={<Welcome />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/rooms" element={<Rooms />} />
-					<Route path="/Reservations" element={<Reservations />} />
-					<Route path="/facilities" element={<Facilities />} />
-					<Route path="/contact" element={<MapContainer />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-					<Route
-						path="/logout"
-						exact
-						component={() => (
-							<Login message="User Logged Out Successfully." />
-						)}
-					/>
-				</Routes>
-				<Outlet />
-			</div>
+			<Routes>
+				<Route path="/" element={<Welcome />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/rooms" element={<Rooms />} />
+				<Route path="/Reservations" element={<Reservations />} />
+				<Route path="/facilities" element={<Facilities />} />
+				<Route path="/contact" element={<MapContainer />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
+				<Route
+					path="/logout"
+					exact
+					component={() => (
+						<Login message="User Logged Out Successfully." />
+					)}
+				/>
+			</Routes>
+			<Outlet />
 			<Footer />
 		</Router>
 	);
