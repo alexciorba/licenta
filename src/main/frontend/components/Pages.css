@@ -1,3 +1,35 @@
 .marker {
     background-color: rgb(154, 203, 239);
 }
+
+.rooms-container {
+    padding-top: 90px !important;
+}
+
+.map-wrapper {
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+    margin-top: 90px;
+}
+
+.login-page-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-title {
+    margin-bottom: 32px;
+}
+
+.login-form {
+    width: 30%;
+}
+
+.login-form-row {
+    margin-bottom: 16px;
+}

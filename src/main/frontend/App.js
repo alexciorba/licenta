@@ -1,4 +1,6 @@
 import "./App.css";
+import "bootstrap/scss/bootstrap.scss";
+import "../../assets/scss/paper-kit.scss?v=1.3.0";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import NavigationBar from "./components/NavigationBar";
@@ -9,7 +11,7 @@ import Home from "./components/Home";
 import Rooms from "./components/Rooms";
 import Reservations from "./components/Reservations";
 import Facilities from "./components/Facilities";
-import MapContainer from "./components/Contact"
+import Contact from "./components/Contact"
 import Login from "./components/User/Login";
 import Register from "./components/User/Register";
 import RootReducer from "./services/rootReducer";
@@ -30,17 +32,15 @@ const App = () => {
 		}
 		return "";
 	};
-
 	return (
 		<Router basename="/hotel-app">
-			<NavigationBar />
 			<Routes>
 				<Route path="/" element={<Welcome />} />
 				<Route path="/home" element={<Home />} />
 				<Route path="/rooms" element={<Rooms />} />
-				<Route path="/Reservations" element={<Reservations />} />
+				<Route path="/reservation" element={<Reservations />} />
 				<Route path="/facilities" element={<Facilities />} />
-				<Route path="/contact" element={<MapContainer />} />
+				<Route path="/contact" element={<Contact />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route
@@ -51,8 +51,6 @@ const App = () => {
 					)}
 				/>
 			</Routes>
-			<Outlet />
-			<Footer />
 		</Router>
 	);
 }

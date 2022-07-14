@@ -21,8 +21,8 @@ const NavigationBar = () => {
 	const guestLinks = (<>
 		<div className="me-auto">
 			<Nav>
-			<Link to="/rooms" className="nav-link">Rooms</Link>
-				<Link to="/reservations" className="nav-link">Reservations</Link>
+				<Link to="/rooms" className="nav-link">Rooms</Link>
+				<Link to="/reservation" className="nav-link">Reservation</Link>
 				<Link to="/facilities" className="nav-link">Facilities</Link>
 				<Link to="/contact" className="nav-link">Contact</Link>
 			</Nav>
