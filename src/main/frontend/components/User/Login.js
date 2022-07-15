@@ -18,7 +18,8 @@ import { authenticateUser } from "../../services/index";
 import Card from "react-bootstrap/Card";
 import 'bootstrap/dist/css/bootstrap.css';
 import FormControl from "react-bootstrap/FormControl";
-
+import '../Pages.css'
+import IndexNavbar from "../Navbars/IndexNavbar";
 
 
 const Login = (props) => {
@@ -51,61 +52,59 @@ const Login = (props) => {
 				setError("Invalid email and password");
 			});
 	};
-	
+
 
 	const resetLoginForm = () => {
 		setUser(initialState);
 	};
 
 	return (
-		<Row className="justify-content-md-center">
-			<Col xs={5}>
-				{show && props.message && (
-					<Alert variant="success" onClose={() => setShow(false)} dismissible>
-						{props.message}
-					</Alert>
-				)}
-				{show && error && (
-					<Alert variant="danger" onClose={() => setShow(false)} dismissible>
-						{error}
-					</Alert>
-				)}
-				<Card className={"border border-dark bg-dark text-white"}>
-					<Card.Header>
-						<FontAwesomeIcon icon={faSignInAlt} /> Login
-					</Card.Header>
-					<Card.Body>
-						<Row>
-							<Form.Group as={Col}>
-								<FormControl
-									required
-									autoComplete="off"
-									type="text"
-									name="email"
-									value={user.email}
-									onChange={credentialChange}
-									className={"bg-dark text-white"}
-									placeholder="Enter Email Address"
-								/>
-							</Form.Group>
-						</Row>
-						<Row>
-							<Form.Group as={Col}>
-								<FormControl
-									required
-									autoComplete="off"
-									type="password"
-									name="password"
-									value={user.password}
-									onChange={credentialChange}
-									className={"bg-dark text-white"}
-									placeholder="Enter Password"
-								/>
-							</Form.Group>
-						</Row>
-					</Card.Body>
-					<Card.Footer style={{ textAlign: "right" }}>
+		<div className="login-page-wrapper">
+			<IndexNavbar />
+			<h1 className="login-title">Login</h1>
+			<Row className="justify-content-md-center login-form">
+				<Col md={12}>
+					{show && props.message && (
+						<Alert variant="success" onClose={() => setShow(false)} dismissible>
+							{props.message}
+						</Alert>
+					)}
+					{show && error && (
+						<Alert variant="danger" onClose={() => setShow(false)} dismissible>
+							{error}
+						</Alert>
+					)}
+					<Row className="login-form-row">
+						<Form.Group as={Col}>
+							<FormControl
+								required
+								autoComplete="off"
+								type="text"
+								name="email"
+								value={user.email}
+								onChange={credentialChange}
+								className={"bg-dark text-white"}
+								placeholder="Enter Email Address"
+							/>
+						</Form.Group>
+					</Row>
+					<Row className="login-form-row">
+						<Form.Group as={Col}>
+							<FormControl
+								required
+								autoComplete="off"
+								type="password"
+								name="password"
+								value={user.password}
+								onChange={credentialChange}
+								className={"bg-dark text-white"}
+								placeholder="Enter Password"
+							/>
+						</Form.Group>
+					</Row>
+					<Row className="flex">
 						<Button
+							className="ml-auto w-25 mr-1"
 							size="sm"
 							type="button"
 							variant="success"
@@ -115,6 +114,7 @@ const Login = (props) => {
 							<FontAwesomeIcon icon={faSignInAlt} /> Login
 						</Button>{" "}
 						<Button
+							className="w-25"
 							size="sm"
 							type="button"
 							variant="info"
@@ -123,10 +123,9 @@ const Login = (props) => {
 						>
 							<FontAwesomeIcon icon={faUndo} /> Reset
 						</Button>
-					</Card.Footer>
-				</Card>
-			</Col>
-		</Row>
+					</Row>
+				</Col>
+			</Row></div>
 	);
 };
 

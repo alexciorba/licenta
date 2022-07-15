@@ -1,0 +1,220 @@
+.card-room {
+  background-color: #fff;
+  //max-width: 250px;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+
+  .btn-rooms {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55%;
+    margin: auto;
+    max-width: 150px;
+  }
+
+  .name-rooms {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 35%;
+    margin: auto;
+    max-width: 150px;
+    text-align: center;
+    background: rgba(211, 211, 211, 0.5);
+    border-radius: 10px;
+    padding: 4px;
+  }
+}
+.title-rooms {
+  margin: 48px 0px;
+}
+
+.rooms-wrapper {
+  margin-bottom: 32px;
+}
+
+.card-room > img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-room:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.card-room > p {
+  padding: 20px;
+}
+
+.card-data {
+  padding: 5px 0;
+
+  span {
+    margin-left: 10px;
+    font-weight: 400;
+  }
+}
+
+.nav-color {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: black;
+
+  .navbar-transparent {
+    padding-top: 0;
+  }
+}
+
+.form-contact {
+  padding: 50px 0;
+}
+
+.dark-footer {
+  color: #fff !important;
+}
+
+.footer-info {
+  padding-top: 20px;
+
+  .info-title {
+    font-weight: bold;
+  }
+
+  .info-address {
+    padding-top: 10px;
+    color: #fff;
+  }
+
+  .info-title-social {
+    font-weight: 200;
+  }
+}
+
+.footer-info > i {
+  margin: 10px;
+  padding-top: 20px;
+}
+
+.footer-info > i:hover {
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.hr {
+  height: 1px;
+  width: 100%;
+  background-color: #6d6d6d;
+  margin-top: 50px;
+}
+
+.rooms {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .card-room {
+    border: 1px solid #9c9c9c;
+    text-align: center;
+  }
+}
+
+.nav-color {
+  z-index: 9 !important;
+}
+
+a {
+  color: #fff !important;
+}
+
+.reservation {
+  padding-top: 150px;
+  padding-bottom: 100px;
+
+  .card-room {
+    border: 1px solid #9c9c9c;
+    text-align: center;
+  }
+
+  .form {
+    margin-top: 20px;
+
+    .form-group {
+      .date-picker {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #dddddd;
+        padding: 0 10px;
+      }
+
+      Input:focus {
+        border: 2px solid #101010;
+      }
+
+      span {
+        color: #de4b4b;
+        font-weight: bold;
+      }
+    }
+
+    .btn-reservation {
+      margin-top: 10px;
+    }
+  }
+}
+
+.scroll-to-top {
+  background-color: #b64343;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 999 !important;
+  padding: 10px 10px 10px 12px;
+  display: flex;
+  cursor: pointer;
+}
+
+.scroll-to-top > i {
+  font-size: 30px;
+  color: #fff;
+}
+
+.header {
+  background-color: black;
+
+  .header-img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+    opacity: 0.4;
+  }
+
+  .header-title {
+    position: absolute;
+    top: 17%;
+    left: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .header-sub-title {
+    position: absolute;
+    top: 26%;
+    left: 100px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+}

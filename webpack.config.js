@@ -13,7 +13,7 @@ module.exports = {
 		rules: [
 			{
 				test: path.join(__dirname, '.'),
-				exclude: /(node_modules)/,
+				exclude: [/(node_modules)/,  /\.eot$/,  /\.ttf$/,  /\.woff$/,  /\.woff2$/],
 				use: [{
 					loader: 'babel-loader',
 					options: {
@@ -24,6 +24,17 @@ module.exports = {
 			{
 				test: /\.css$/i,
 				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+				// Creates `style` nodes from JS strings
+				"style-loader",
+				// Translates CSS into CommonJS
+				"css-loader",
+				// Compiles Sass to CSS
+				"sass-loader",
+				],
 			},
 			{
 				test: /\.(jpg|png)$/,

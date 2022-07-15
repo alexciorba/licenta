@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Button, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from "reactstrap";
 import './Pages.css';
+import IndexNavbar from "../components/Navbars/IndexNavbar";
+import MapContainer from './MapContainer';
 
 const mapStyles = {
     width: '100%',
     height: '100%'
 };
 
-export class MapContainer extends Component {
+export class Contact extends Component {
 
     constructor(props) {
         super(props);
@@ -67,43 +70,52 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            <Map
-                google={this.props.google}
-                zoom={14}
-                style={mapStyles}
-                initialCenter={
-                    {
-                        lat: 40.6710729,
-                        lng: -73.9988001
-                    }
-                }
-            >
-                {
-                    this.state.places.map(item =>
-                        <Marker
-                            key={item.id}
-                            title={item.name}
-                            name={item.name}
-                            onClick={this.onMarkerClick}
-                            position={{ lat: item.latitude, lng: item.longitude }}
-                        />
-                    )
-                }
-
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}
-                    onClose={this.onClose}
-                >
-                    <div className="marker">
-                        <h4>{this.state.selectedPlace.name}</h4>
-                    </div>
-                </InfoWindow>
-            </Map>
+            <div>
+                <IndexNavbar />
+                <div>
+                    <MapContainer></MapContainer>
+                </div>
+                <div className={'form-contact'}>
+                    <Container>
+                        <Row>
+                            <Col className="ml-auto mr-auto" md="8">
+                                <h2 className="text-center">Doresti sa luati legatura cu noi?</h2>
+                                <Form className="contact-form">
+                                    <Row>
+                                        <Col md="6">
+                                            <label>Nume</label>
+                                            <Input
+                                                placeholder="Nume"
+                                            />
+                                        </Col>
+                                        <Col md="6">
+                                            <label>Email</label>
+                                            <Input
+                                                placeholder="Email"
+                                            />
+                                        </Col>
+                                    </Row>
+                                    <label>Mesaj</label>
+                                    <Input
+                                        placeholder="Spune-ne parerea ta..."
+                                        type="textarea"
+                                        rows="4"
+                                    />
+                                    <Row>
+                                        <Col className="ml-auto mr-auto" md="4">
+                                            <Button className="btn-fill" color="danger" size="lg">
+                                                Trimite
+                                            </Button>
+                                        </Col>
+                                    </Row>
+                                </Form>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            </div>
         );
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBA4mCmjT081BJPELrTMdb_yMKzhOU1Wpc'
-})(MapContainer);
+export default Contact
