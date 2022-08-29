@@ -1,13 +1,51 @@
 import React, { Component, useState } from 'react';
 import "./Pages.css";
 import HotelRoom1 from '../../../assets/images/hotel-room1.jpg';
+import { Reservation } from "../services/index";
 import { Button, Col, Container, Input, Label, Row } from "reactstrap";
 import IndexNavbar from './Navbars/IndexNavbar';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footer from './Footers/Footer';
 
+import {  Link } from "react-router-dom";
+
+
+
 const Reservations = () => {
+
+    const userReservation = (props) => {
+
+        const [show, setShow] = useState(false);
+        	const [message, setMessage] = useState("");
+	    const initialState = {
+        		name: "",
+        		surname: "",
+        		address: "",
+        		city: "",
+        		postalCode: "",
+        		phone: "",
+        		email: "",
+
+        	};
+        	const [register, setRegister] = useState(initialState);
+		fetch('http://localhost:8080/hotel-app/reservation/add', {
+        			method: 'POST',
+        			headers: {
+        				'Accept': 'application/json',
+        				'Content-Type': 'application/json'
+        			},
+        			body: JSON.stringify(register)
+        		})
+        			.then(res => res.json())
+        			.then((data) => {
+                    				setShow(true);
+                    				setMessage(data.message);
+
+                    			})
+        			.then(res => console.log(res))
+
+    };
     const [state, setState] = useState({ checkInDate: new Date(), checkOutDate: new Date() })
 
     return (
@@ -97,7 +135,7 @@ const Reservations = () => {
 
                                     <Col md={12}>
                                         <div align={'right'}>
-                                            <Button className={'btn-warning btn-reservation'}>Rezerva</Button>
+                                            <Button className={'btn-warning btn-reservation'} onClick={userReservation}>Rezerva</Button>
                                         </div>
                                     </Col>
                                 </Row>

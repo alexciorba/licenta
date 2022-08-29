@@ -30,6 +30,17 @@ export const authenticateUser = (user)  => {
 		body: JSON.stringify(user)
 	})
 };
+
+export const Reservation = () => {
+    return fetch('http://localhost:8080/hotel-app/reservation', {
+    		method: 'POST',
+    		headers: {
+    			'Accept': 'application/json',
+    			'Content-Type': 'application/json'
+    		}
+    	})
+};
+
 export const setLocalStorage = () => {
 	localStorage.setItem("jwtToken", data.token);
 	success({ username: data.name, isLoggedIn: true });

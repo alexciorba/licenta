@@ -20,8 +20,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import FormControl from "react-bootstrap/FormControl";
 import '../Pages.css'
 import IndexNavbar from "../Navbars/IndexNavbar";
-
-
+import { Link } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 const Login = (props) => {
 	const [error, setError] = useState();
 	const [show, setShow] = useState(true);
@@ -39,19 +39,21 @@ const Login = (props) => {
 	};
 
 
-	const validateUser = () => {
-		authenticateUser(user)
-			.then((response) => {
-				console.log(response.data);
-				// return props.history.push("/");
-			})
-			.catch((error) => {
-				console.log(error.message);
-				setShow(true);
-				resetLoginForm();
-				setError("Invalid email and password");
-			});
-	};
+//	const validateUser = () => {
+//		authenticateUser(user)
+//			.then((response) => {
+//			   return props.history.push("/contact");
+//				//<Redirect to="/reservation" />
+//				//<Link to="/reservation" className"btn btn-primary">Reservation</Link>
+//				//window.location.href='/hotel-app/reservation'
+//			})
+////			.catch((error) => {
+////				console.log(error.message);
+////				setShow(true);
+////				resetLoginForm();
+////				setError("valid email and password");
+////			});
+//	};
 
 
 	const resetLoginForm = () => {
@@ -103,26 +105,18 @@ const Login = (props) => {
 						</Form.Group>
 					</Row>
 					<Row className="flex">
+					<Link to="/">
 						<Button
 							className="ml-auto w-25 mr-1"
 							size="sm"
 							type="button"
 							variant="success"
-							onClick={validateUser}
-							disabled={user.email.length === 0 || user.password.length === 0}
+
 						>
 							<FontAwesomeIcon icon={faSignInAlt} /> Login
 						</Button>{" "}
-						<Button
-							className="w-25"
-							size="sm"
-							type="button"
-							variant="info"
-							onClick={resetLoginForm}
-							disabled={user.email.length === 0 && user.password.length === 0}
-						>
-							<FontAwesomeIcon icon={faUndo} /> Reset
-						</Button>
+						</Link>
+
 					</Row>
 				</Col>
 			</Row></div>

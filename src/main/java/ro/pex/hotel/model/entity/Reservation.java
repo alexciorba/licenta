@@ -16,6 +16,80 @@ public class Reservation {
 	private Date EndDate;
 
 	private Date ReservationDate;
+	private String Name;
+	private String Surname;
+	private String Address;
+	private String Town;
+	private String City;
+	private String PostalCode;
+	private String Phone;
+	private String Email;
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getSurname() {
+		return Surname;
+	}
+
+	public void setSurname(String surname) {
+		Surname = surname;
+	}
+
+	public String getAddress() {
+		return Address;
+	}
+
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+	public String getTown() {
+		return Town;
+	}
+
+	public void setTown(String town) {
+		Town = town;
+	}
+
+	public String getCity() {
+		return City;
+	}
+
+	public void setCity(String city) {
+		City = city;
+	}
+
+	public String getPostalCode() {
+		return PostalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		PostalCode = postalCode;
+	}
+
+	public String getPhone() {
+		return Phone;
+	}
+
+	public void setPhone(String phone) {
+		Phone = phone;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")

@@ -22,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import FormControl from "react-bootstrap/FormControl";
 import IndexNavbar from "../Navbars/IndexNavbar";
 import '../Pages.css'
+import {  Link } from "react-router-dom";
 
 const Register = (props) => {
 	const [show, setShow] = useState(false);
@@ -144,25 +145,19 @@ const Register = (props) => {
 						</Form.Group>
 					</Row>
 					<Row className="flex">
+					<Link to="/login">
 						<Button
 							className="ml-auto w-25 mr-1"
 							size="sm"
 							type="button"
 							variant="success"
 							onClick={saveUser}
-							disabled={user.email.length === 0 || user.password.length === 0}
+							disabled={ user.email.length === 0 || user.password.length === 0}
 						>
 							<FontAwesomeIcon icon={faUserPlus} /> Register
 						</Button>{" "}
-						<Button
-							className="w-25"
-							size="sm"
-							type="button"
-							variant="info"
-							onClick={resetRegisterForm}
-						>
-							<FontAwesomeIcon icon={faUndo} /> Reset
-						</Button>
+						</Link>
+
 					</Row>
 				</Col>
 			</Row>
