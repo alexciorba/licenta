@@ -18,8 +18,12 @@ export class Contact extends Component {
             places: [],
             showingInfoWindow: false, // Hides or shows the InfoWindow
             activeMarker: {}, // Shows the active marker upon click
-            selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
-
+            selectedPlace: {},        // Shows the InfoWindow to the selected place upon a marker
+            contact: {
+                name: '',
+                email: '',
+                message: ''
+            }
         };
     }
 
@@ -68,6 +72,26 @@ export class Contact extends Component {
         }
     };
 
+    handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({ ...this.state, contact: { ...this.state.contact, [name]: value } })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        fetch('http://localhost:8080/hotel-app/contact/add', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state.contact)
+        })
+            .then(res => res.json())
+            .then(res => console.log(res))
+    }
+
     render() {
         return (
             <div>
@@ -79,19 +103,23 @@ export class Contact extends Component {
                     <Container>
                         <Row>
                             <Col className="ml-auto mr-auto" md="8">
-                                <h2 className="text-center">Doresti sa luati legatura cu noi?</h2>
-                                <Form className="contact-form">
+                                <h2 className="text-center">Doriti sa luati legatura cu noi?</h2>
+                                <Form className="contact-form" onSubmit={this.handleSubmit}>
                                     <Row>
                                         <Col md="6">
                                             <label>Nume</label>
                                             <Input
                                                 placeholder="Nume"
+                                                name='name'
+                                                onChange={this.handleChange}
                                             />
                                         </Col>
                                         <Col md="6">
                                             <label>Email</label>
                                             <Input
                                                 placeholder="Email"
+                                                name='email'
+                                                onChange={this.handleChange}
                                             />
                                         </Col>
                                     </Row>
@@ -100,6 +128,8 @@ export class Contact extends Component {
                                         placeholder="Spune-ne parerea ta..."
                                         type="textarea"
                                         rows="4"
+                                        name='message'
+                                        onChange={this.handleChange}
                                     />
                                     <Row>
                                         <Col className="ml-auto mr-auto" md="4">
