@@ -8,45 +8,49 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footer from './Footers/Footer';
 
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+const initialState = {
+    name: "",
+    surname: "",
+    address: "",
+    addressSecondary: "",
+    city: "",
+    postalCode: "",
+    phone: "",
+    email: "",
 
+};
 
 const Reservations = () => {
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState("");
+    const [state, setState] = useState({ ...initialState, checkInDate: new Date(), checkOutDate: new Date() });
 
-    const userReservation = (props) => {
+    const userReservation = () => {
+        fetch('http://localhost:8080/hotel-app/reservation/add', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(state)
+        })
+            .then(res => res.json())
+            .then((data) => {
+                setShow(true);
+                setMessage(data.message);
 
-        const [show, setShow] = useState(false);
-        	const [message, setMessage] = useState("");
-	    const initialState = {
-        		name: "",
-        		surname: "",
-        		address: "",
-        		city: "",
-        		postalCode: "",
-        		phone: "",
-        		email: "",
-
-        	};
-        	const [register, setRegister] = useState(initialState);
-		fetch('http://localhost:8080/hotel-app/reservation/add', {
-        			method: 'POST',
-        			headers: {
-        				'Accept': 'application/json',
-        				'Content-Type': 'application/json'
-        			},
-        			body: JSON.stringify(register)
-        		})
-        			.then(res => res.json())
-        			.then((data) => {
-                    				setShow(true);
-                    				setMessage(data.message);
-
-                    			})
-        			.then(res => console.log(res))
+            })
+            .then(res => console.log(res))
 
     };
-    const [state, setState] = useState({ checkInDate: new Date(), checkOutDate: new Date() })
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setState({ ...state, [name]: value })
+    }
 
     return (
         <div>
@@ -63,58 +67,58 @@ const Reservations = () => {
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Nume <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='surname' />
                                         </div>
                                     </Col>
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Prenume <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='name' />
                                         </div>
                                     </Col>
 
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Adresa 1 <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='address' />
                                         </div>
                                     </Col>
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Adresa 2</Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='addressSecondary' />
                                         </div>
                                     </Col>
 
                                     <Col md={4}>
                                         <div className={'form-group'}>
                                             <Label>Oras <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='city' />
                                         </div>
                                     </Col>
                                     <Col md={4}>
                                         <div className={'form-group'}>
                                             <Label>Judet <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='county' />
                                         </div>
                                     </Col>
                                     <Col md={4}>
                                         <div className={'form-group'}>
                                             <Label>Cod postal <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='postalCode' />
                                         </div>
                                     </Col>
 
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Telefon <span>*</span></Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='phone' />
                                         </div>
                                     </Col>
                                     <Col md={6}>
                                         <div className={'form-group'}>
                                             <Label>Adresa de email</Label>
-                                            <Input />
+                                            <Input onChange={handleChange} name='email' />
                                         </div>
                                     </Col>
 
