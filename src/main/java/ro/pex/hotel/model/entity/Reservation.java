@@ -11,9 +11,9 @@ public class Reservation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private Date StartDate;
+	private Date checkInDate;
 
-	private Date EndDate;
+	private Date checkOutDate;
 
 	private Date ReservationDate;
 	private String Name;
@@ -109,20 +109,20 @@ public class Reservation {
 		this.id = id;
 	}
 
-	public Date getStartDate() {
-		return StartDate;
+	public Date getCheckInDate() {
+		return checkInDate;
 	}
 
-	public void setStartDate(Date StartDate) {
-		this.StartDate = StartDate;
+	public void setCheckInDate(Date checkInDate) {
+		this.checkInDate = checkInDate;
 	}
 
-	public Date getEndDate() {
-		return EndDate;
+	public Date getCheckOutDate() {
+		return checkOutDate;
 	}
 
-	public void setEndDate(Date EndDate) {
-		this.EndDate = EndDate;
+	public void setCheckOutDate(Date checkOutDate) {
+		this.checkOutDate = checkOutDate;
 	}
 
 	public Date getReservationDate() {

@@ -61,9 +61,8 @@ const Welcome = () => {
                             <Col className="ml-auto mr-auto" md="8">
                                 <h2 className="title">What is Hotel App?</h2>
                                 <h5 className="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores culpa
-                                    deleniti esse eum, magni molestiae mollitia natus nobis nostrum nulla qui quia,
-                                    quis, reiciendis sapiente suscipit veritatis voluptas voluptate.
+                                    Hotel Alexia is a family-friendly hotel that offers a wide range of accommodation types, from rooms to suites.
+                                   All this in the peaceful surroundings of our beautiful gardens, will make your time at Hotel Alexia an unforgettable holiday.
                                 </h5>
                             </Col>
                         </Row>
@@ -120,8 +119,8 @@ const Welcome = () => {
                                             <h3>Shirley Fultz</h3>
                                             <h4>Designer</h4>
                                             <p>
-                                                It's freeing to be able to catch up on customized news and not be
-                                                distracted by a social media element on the same site
+                                               " the position is exceptional, the hotel presents a superior quality in the rooms and the entire staff was well trained.
+                                                I recommend with confidence and I will definitely come back. "
                                             </p>
                                         </div>
                                     </div>
@@ -132,8 +131,7 @@ const Welcome = () => {
                                             <h3>Daniel Keystone</h3>
                                             <h4>Designer</h4>
                                             <p>
-                                                The simple and intuitive design makes it easy for me use. I highly
-                                                recommend Fetch to my peers.
+                                                " The location, the special lounge, the fitness room, the massage, the breakfast... all 10! "
                                             </p>
                                         </div>
                                     </div>
@@ -144,8 +142,8 @@ const Welcome = () => {
                                             <h3>Theo Sorel</h3>
                                             <h4>Designer</h4>
                                             <p>
-                                                I enjoy catching up with Fetch on my laptop, or on my phone when
-                                                I'm on the go!
+                                              " The room was very spacious and clean, the view from the room, right on the path of victory and at the
+                                              same time the silence in the room, despite the location. "
                                             </p>
                                         </div>
                                     </div>

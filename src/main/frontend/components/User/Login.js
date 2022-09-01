@@ -39,21 +39,21 @@ const Login = (props) => {
 	};
 
 
-//	const validateUser = () => {
-//		authenticateUser(user)
-//			.then((response) => {
-//			   return props.history.push("/contact");
-//				//<Redirect to="/reservation" />
-//				//<Link to="/reservation" className"btn btn-primary">Reservation</Link>
-//				//window.location.href='/hotel-app/reservation'
-//			})
-////			.catch((error) => {
-////				console.log(error.message);
-////				setShow(true);
-////				resetLoginForm();
-////				setError("valid email and password");
-////			});
-//	};
+	const validateUser = () => {
+		authenticateUser(user)
+		.then((response) => {
+		   return props.history.push("/contact");
+
+
+
+			})
+			.catch((error) => {
+				console.log(error.message);
+				setShow(true);
+				resetLoginForm();
+				setError("valid email and password");
+			});
+	};
 
 
 	const resetLoginForm = () => {
